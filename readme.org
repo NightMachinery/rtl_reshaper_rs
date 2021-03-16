@@ -1,0 +1,100 @@
+#+TITLE: rtl_reshaper_rs
+
+=rtl_reshaper_rs= is a CLI tool that uses rust libraries =arabic_reshaper= and =unic-bidi= to reshape and reorder bi-directional, Arabic/Persian text for display in apps that do not support them natively.
+* Installation
+#+begin_example zsh
+cargo install --git https://github.com/NightMachinary/rtl_reshaper_rs
+#+end_example
+* Usage
+#+begin_src bsh.dash :results verbatim :exports both :wrap example
+echo 'من غذا خوردم.' $'\n' 'خانه خالی و hollow است ... :)' | rtl_reshaper_rs
+echo $'\n'
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+ .ﻡﺩﺭﻮﺧ ﺍﺬﻏ ﻦﻣ
+): ... ﺖﺳﺍ hollow ﻭ ﯽﻟﺎﺧ ﻪﻧﺎﺧ
+
+#+end_example
+
+[[file:readme.org_imgs/20210316_211212_rq0bk5.png]]
+* Alternatives
+** [[https://github.com/NightMachinary/.shells/blob/master/scripts/python/RTL/rtl_reshaper.py][Python version]] (less buggy but much slower)
+** Benchmarks
+#+begin_src bsh.dash :results verbatim :exports both :wrap example
+cd ~/code/data/sharif_course_list || return $?
+hyperfine --warmup=6 'ls -l | rtl_reshaper_rs' 'ls -l | rtl_reshaper.py'
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Benchmark #1: ls -l | rtl_reshaper_rs
+  Time (mean ± σ):      19.6 ms ±   2.4 ms    [User: 13.7 ms, System: 7.2 ms]
+  Range (min … max):    17.3 ms …  31.9 ms    98 runs
+
+  Warning: Statistical outliers were detected. Consider re-running this benchmark on a quiet PC without any interferences from other programs. It might help to use the '--warmup' or '--prepare' options.
+
+Benchmark #2: ls -l | rtl_reshaper.py
+  Time (mean ± σ):     885.2 ms ±  27.4 ms    [User: 595.2 ms, System: 257.1 ms]
+  Range (min … max):   850.9 ms … 921.2 ms    10 runs
+
+Summary
+  'ls -l | rtl_reshaper_rs' ran
+   45.21 ± 5.61 times faster than 'ls -l | rtl_reshaper.py'
+#+end_example
+
+* Known issues
+** Upstream
+*** Newlines are ordered weirdly:
+#+begin_src bsh.dash :results verbatim :exports both :wrap example
+echo A$'\n'B | rtl_reshaper_rs
+#+end_src
+
+#+RESULTS:
+#+begin_example
+A
+B
+#+end_example
+
+#+begin_src bsh.dash :results verbatim :exports both :wrap example
+echo ب$'\n'ن | rtl_reshaper_rs
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+ﺏ
+ﻥ
+#+end_example
+
+#+begin_src bsh.dash :results verbatim :exports both :wrap example
+echo ب$'\n'ن | rtl_reshaper.py
+#+end_src
+
+#+RESULTS:
+#+begin_example
+ﺏ
+ﻥ
+#+end_example
+
+*** Punctuation marks are ordered wrongly:
+#+begin_src bsh.dash :results verbatim :exports both :wrap example
+echo "بد :)" | rtl_reshaper_rs
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+): ﺪﺑ
+#+end_example
+
+#+begin_src bsh.dash :results verbatim :exports both :wrap example
+echo "بد :)" | rtl_reshaper.py
+#+end_src
+
+#+RESULTS:
+#+begin_example
+(: ﺪﺑ
+#+end_example
