@@ -102,5 +102,6 @@ echo "بد :)" | rtl_reshaper.py
 #+begin_example
 (: ﺪﺑ
 #+end_example
+
 * License
 MIT

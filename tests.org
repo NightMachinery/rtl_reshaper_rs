@@ -1,0 +1,32 @@
+*** 'e' is dropped
+#+begin_src bsh.dash :results verbatim :exports both :wrap example
+cd ~/code/data/sharif_course_list || return $?
+ll | rtl_reshaper_rs | sponge | ghead -n 7
+#+end_src
+
+#+RESULTS:
+#+begin_example
+drwxr-xr-x    - var 16 Mar 18:47 .git
+.rw-r--r--   18 var 11 Oct  2020 .gitignor
+drwxr-xr-x    - var 10 Oct  2020 .hiddn
+.rw-r--r--  29k var 10 Oct  2020 dfault.css
+.rw-r--r--  40k var 19 Fb  0:19 indx.html
+.rw-r--r-- 2.0k var 11 Oct  2020 radm.md
+.rw-r--r--  39k var 11 Oct  2020 tmp.html
+#+end_example
+
+#+begin_src bsh.dash :results verbatim :exports both :wrap example
+cd ~/code/data/sharif_course_list || return $?
+ll | rtl_reshaper.py | sponge | ghead -n 7
+#+end_src
+
+#+RESULTS:
+#+begin_example
+drwxr-xr-x    - evar 16 Mar 18:47 .git
+.rw-r--r--   18 evar 11 Oct  2020 .gitignore
+drwxr-xr-x    - evar 10 Oct  2020 .hidden
+.rw-r--r--  29k evar 10 Oct  2020 default.css
+.rw-r--r--  40k evar 19 Feb  0:19 index.html
+.rw-r--r-- 2.0k evar 11 Oct  2020 readme.md
+.rw-r--r--  39k evar 11 Oct  2020 tmp.html
+#+end_example
