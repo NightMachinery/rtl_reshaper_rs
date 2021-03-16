@@ -5,6 +5,10 @@
 #+begin_example zsh
 cargo install --git https://github.com/NightMachinary/rtl_reshaper_rs
 #+end_example
+Or
+#+begin_example zsh
+cargo install rtl_reshaper_rs
+#+end_example
 * Usage
 #+begin_src bsh.dash :results verbatim :exports both :wrap example
 echo 'من غذا خوردم.' $'\n' 'خانه خالی و hollow است ... :)' | rtl_reshaper_rs
