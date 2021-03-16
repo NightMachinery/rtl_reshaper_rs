@@ -49,34 +49,34 @@ Summary
 ** Upstream
 *** Newlines are ordered weirdly:
 #+begin_src bsh.dash :results verbatim :exports both :wrap example
-echo A$'\n'B | rtl_reshaper_rs
+echo A$'\n'B | rtl_reshaper_rs | cat -n
 #+end_src
 
 #+RESULTS:
 #+begin_example
-A
-B
+     1	A
+     2	B
 #+end_example
 
 #+begin_src bsh.dash :results verbatim :exports both :wrap example
-echo ب$'\n'ن | rtl_reshaper_rs
+echo ب$'\n'ن | rtl_reshaper_rs | cat -n
 #+end_src
 
 #+RESULTS:
 #+begin_example
-
-ﺏ
-ﻥ
+     1
+     2	ﺏ
+     3	ﻥ
 #+end_example
 
 #+begin_src bsh.dash :results verbatim :exports both :wrap example
-echo ب$'\n'ن | rtl_reshaper.py
+echo ب$'\n'ن | rtl_reshaper.py | cat -n
 #+end_src
 
 #+RESULTS:
 #+begin_example
-ﺏ
-ﻥ
+     1	ﺏ
+     2	ﻥ
 #+end_example
 
 *** Punctuation marks are ordered wrongly:
