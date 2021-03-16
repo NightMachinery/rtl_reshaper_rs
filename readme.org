@@ -51,6 +51,7 @@ Summary
 
 * Known issues
 ** Upstream
+*** [[https://github.com/sigmaSd/arabic-reshaper-rs/issues/2][Character 'e' is dropped · Issue #2 · sigmaSd/arabic-reshaper-rs]]
 *** Newlines are ordered weirdly:
 #+begin_src bsh.dash :results verbatim :exports both :wrap example
 echo A$'\n'B | rtl_reshaper_rs | cat -n
