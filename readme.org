@@ -35,23 +35,23 @@ hyperfine --warmup=6 'ls -l | rtl_reshaper_rs' 'ls -l | rtl_reshaper.py'
 #+RESULTS:
 #+begin_example
 Benchmark #1: ls -l | rtl_reshaper_rs
-  Time (mean ± σ):      19.6 ms ±   2.4 ms    [User: 13.7 ms, System: 7.2 ms]
-  Range (min … max):    17.3 ms …  31.9 ms    98 runs
+  Time (mean ± σ):      24.2 ms ±  12.9 ms    [User: 14.8 ms, System: 8.3 ms]
+  Range (min … max):    13.9 ms …  91.3 ms    91 runs
 
   Warning: Statistical outliers were detected. Consider re-running this benchmark on a quiet PC without any interferences from other programs. It might help to use the '--warmup' or '--prepare' options.
 
 Benchmark #2: ls -l | rtl_reshaper.py
-  Time (mean ± σ):     885.2 ms ±  27.4 ms    [User: 595.2 ms, System: 257.1 ms]
-  Range (min … max):   850.9 ms … 921.2 ms    10 runs
+  Time (mean ± σ):      1.310 s ±  0.137 s    [User: 751.1 ms, System: 317.7 ms]
+  Range (min … max):    1.051 s …  1.489 s    10 runs
 
 Summary
   'ls -l | rtl_reshaper_rs' ran
-   45.21 ± 5.61 times faster than 'ls -l | rtl_reshaper.py'
+   54.07 ± 29.28 times faster than 'ls -l | rtl_reshaper.py'
 #+end_example
 
 * Known issues
 ** Upstream
-*** [[https://github.com/sigmaSd/arabic-reshaper-rs/issues/2][Character 'e' is dropped · Issue #2 · sigmaSd/arabic-reshaper-rs]]
+*** [[https://github.com/sigmaSd/arabic-reshaper-rs/issues/2][+Character 'e' is dropped · Issue #2 · sigmaSd/arabic-reshaper-rs+]]
 *** Newlines are ordered weirdly:
 #+begin_src bsh.dash :results verbatim :exports both :wrap example
 echo A$'\n'B | rtl_reshaper_rs | cat -n

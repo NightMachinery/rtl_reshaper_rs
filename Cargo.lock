@@ -11,9 +11,9 @@ dependencies = [
 
 [[package]]
 name = "arabic_reshaper"
-version = "0.2.0"
+version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5fbe0c05279ea71997d227d1960b82b1fd2fc731e0eb2cdbc30fc03e8b94639a"
+checksum = "4270bde530a65a71ffa16fdc3bda93d27c322c1d759f92e74e5eddedab7c7c84"
 dependencies = [
  "once_cell",
  "regex",
