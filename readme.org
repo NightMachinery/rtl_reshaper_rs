@@ -3,7 +3,7 @@
 =rtl_reshaper_rs= is a CLI tool that uses rust libraries =arabic_reshaper= and =unic-bidi= to reshape and reorder bi-directional, Arabic/Persian text for display in apps that do not support them natively.
 * Installation
 #+begin_example zsh
-cargo install --git https://github.com/NightMachinary/rtl_reshaper_rs
+cargo install --git https://github.com/NightMachinary/rtl_reshaper_rs --force
 #+end_example
 Or (not recommended):
 #+begin_example zsh
