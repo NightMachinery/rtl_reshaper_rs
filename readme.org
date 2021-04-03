@@ -25,6 +25,9 @@ echo $'\n'
 
 [[file:readme.org_imgs/20210316_211212_rq0bk5.png]]
 * Alternatives
+** http://fribidi.org/
+*** https://github.com/NightMachinary/bicon
+**** https://github.com/behdad/bicon
 ** [[https://github.com/NightMachinary/.shells/blob/master/scripts/python/RTL/rtl_reshaper.py][Python version]] (less buggy but much slower)
 ** Benchmarks
 #+begin_src bsh.dash :results verbatim :exports both :wrap example
